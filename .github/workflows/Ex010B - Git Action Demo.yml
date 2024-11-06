@@ -35,13 +35,20 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
+
+  build-api:
+    runs-on: windows-latest
+    steps:
+      - run: echo "Building API"
+
+
   build-db:
     needs: build-app
     runs-on: windows-latest
     steps:
       - run: echo "Hello windows"
 
-
+      
   package:
     needs: [build-app, build-db]
     runs-on: macos-latest
